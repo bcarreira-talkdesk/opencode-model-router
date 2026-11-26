@@ -38,3 +38,9 @@ Verified real `delivery: queue` serialization after an interrupted execution on 
 ## [2026-11-26] ingest | OpenCode 2.4.1 live cross-provider smoke
 
 After user-authorized environment upgrade and minimal paid smoke, controlled location loading succeeded on OpenCode 2.4.1. Real assistant records proved `ia_appliance → ollama`, `ollama → github-copilot`, and `github-copilot → ollama`. Routing was restored to `off` in the isolated location. See [[entities/model-router]] and [[concepts/cross-provider-routing-boundaries]].
+
+## [2026-11-26] ingest | TUI dialog, location, and settings precedence
+The real TUI registered `/router` but never opened the dialog until every RPC call passed `{ location: context.location }`. A leftover `"mode": "off"` in plugin `options` also kept overriding the user's `auto` selection, and per-row `footer` text hid the model name and price in narrow terminals. Captured in [[concepts/settings-and-tui-plumbing]]; sidebar now reports mode, backend, role models, and the active tier/model.
+
+## [2026-11-26] ingest | Public GitHub repository
+The package is published as `bcarreira-talkdesk/opencode-model-router` (public, `main`, single initial commit, `node_modules/` ignored). Installation remains local-path based; there is no npm package. README install example now uses a placeholder path instead of a personal absolute path.

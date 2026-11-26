@@ -9,6 +9,10 @@ lastReviewed: 2026-11-26
 
 Standalone OpenCode V2 plugin that routes admitted prompts to configured simple and complex models, including across providers. It supports local `/v1/systemone` and selected LLM classification, validated settings, cost-aware TUI selection, serialized busy-session admission, compatibility checks, and typed RPC status/settings.
 
+## Distribution
+
+Hosted publicly at `https://github.com/bcarreira-talkdesk/opencode-model-router` (`main`). Not published to npm; install by pointing `opencode.json` at the checkout path. `node_modules/`, `dist/`, and `.env*` are git-ignored.
+
 ## Verification status
 
 - Exact runtime/API target: **OpenCode 2.4.1 / `@opencode/plugin 2.4.1`**.
@@ -29,4 +33,4 @@ Remote plaintext decision endpoints are rejected; decision fetch redirects fail;
 
 ## Remaining acceptance matrix
 
-Live cross-provider routing is proven. Queue/interruption, compaction, hot-reload recovery, and child-session isolation also passed. Remaining stress coverage is simultaneous steering races, continuation classification count, user model-picker ownership/restoration, and TUI click-through. The isolated location is restored to `off`; global routing remains disabled.
+Live cross-provider routing is proven. Queue/interruption, compaction, hot-reload recovery, and child-session isolation also passed. The `/router` dialog and sidebar are confirmed in the real TUI: every TUI RPC call must pass `{ location: context.location }`, otherwise the command registers but the dialog never opens. Remaining stress coverage is simultaneous steering races, continuation classification count, and user model-picker ownership/restoration. Routing state is per-location; see [[../concepts/cross-provider-routing-boundaries]].
