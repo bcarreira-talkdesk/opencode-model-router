@@ -1,0 +1,46 @@
+{
+  "name": "opencode-model-router",
+  "version": "0.1.0",
+  "description": "OpenCode V2 plugin that routes each prompt to a user-selected simple or complex model (cross-provider), judged by a local decision model or an LLM, with a cost-aware TUI picker",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./rpc": "./src/rpc.ts",
+    "./tui": "./src/tui.tsx"
+  },
+  "files": [
+    "src",
+    "README.md"
+  ],
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "node --import tsx --test \"src/**/*.test.ts\" \"tests/**/*.test.ts\""
+  },
+  "peerDependencies": {
+    "@opencode/plugin": "2.4.1",
+    "@opentui/core": ">=0.8.0",
+    "@opentui/solid": ">=0.8.0",
+    "solid-js": ">=1.9.0"
+  },
+  "peerDependenciesMeta": {
+    "@opentui/core": {
+      "optional": true
+    },
+    "@opentui/solid": {
+      "optional": true
+    },
+    "solid-js": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@opencode/plugin": "2.4.1",
+    "@opentui/core": ">=0.8.0",
+    "@opentui/solid": ">=0.8.0",
+    "@types/node": "^22.0.0",
+    "solid-js": "^1.9.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0"
+  },
+  "license": "MIT"
+}
